@@ -28,16 +28,16 @@ def score(roll):
             frame += 1
     return result
 
-def get_value(char):
-    if char == '1' or char == '2' or char == '3' or \
-       char == '4' or char == '5' or char == '6' or \
-       char == '7' or char == '8' or char == '9':
-        return int(char)
-    elif char == 'X' or char == 'x':
+def get_value(pins):
+    if pins == '1' or pins == '2' or pins == '3' or \
+       pins == '4' or pins == '5' or pins == '6' or \
+       pins == '7' or pins == '8' or pins == '9':
+        return int(pins)
+    elif pins == 'X' or pins == 'x':
         return 10
-    elif char == '/':
+    elif pins == '/':
         return 10
-    elif char == '-':
+    elif pins == '-':
         return 0
     else:
         raise ValueError()
