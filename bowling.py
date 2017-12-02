@@ -4,7 +4,7 @@ def score(roll):
     in_first_half = True
     for i in range(len(roll)):
         if roll[i] == '/':
-            result += 10 - last
+            result += get_value(roll[i]) - last_roll
         else:
             result += get_value(roll[i])
         if frame < 10  and get_value(roll[i]) == 10:
@@ -16,7 +16,7 @@ def score(roll):
                     result += 10 - get_value(roll[i+1])
                 else:
                     result += get_value(roll[i+2])
-        last = get_value(roll[i])
+        last_roll = get_value(roll[i])
         if not in_first_half:
             frame += 1
         in_first_half = not in_first_half
