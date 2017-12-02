@@ -3,20 +3,22 @@ def score(roll):
     frame = 1
     in_first_half = True
     for i in range(len(roll)):
+        currentRollPoint = get_value(roll[i])
         if roll[i] == '/':
-            result += get_value(roll[i]) - last_roll
+            result += currentRollPoint - last_roll
         else:
-            result += get_value(roll[i])
-        if frame < 10  and get_value(roll[i]) == 10:
+            result += currentRollPoint
+        if frame < 10  and currentRollPoint == 10:
+            nextRollPoint = get_value(roll[i+1])
             if roll[i] == '/':
-                result += get_value(roll[i+1])
+                result += nextRollPoint
             elif roll[i] == 'X' or roll[i] == 'x':
-                result += get_value(roll[i+1])
+                result += nextRollPoint
                 if roll[i+2] == '/':
-                    result += 10 - get_value(roll[i+1])
+                    result += 10 - nextRollPoint
                 else:
-                    result += get_value(roll[i+2])
-        last_roll = get_value(roll[i])
+                    result += nextRollPoint
+        last_roll = currentRollPoint
         if not in_first_half:
             frame += 1
         in_first_half = not in_first_half
