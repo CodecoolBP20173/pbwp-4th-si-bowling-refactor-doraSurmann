@@ -17,7 +17,7 @@ def score(roll):
                 if roll[i+2] == '/':
                     result += 10 - nextRollPoint
                 else:
-                    result += nextRollPoint
+                    result += get_value(roll[i+2])
         last_roll = currentRollPoint
         if not in_first_half:
             frame += 1
@@ -30,11 +30,9 @@ def score(roll):
 def get_value(pins):
     if pins in "123456789":
         return int(pins)
-    elif pins == 'X' or pins == 'x' or pins == '/':
+    elif pins in 'Xx/':
         return 10
     elif pins == '-':
         return 0
     else:
         raise ValueError()
-
-print(score("11111111112222222222"))
