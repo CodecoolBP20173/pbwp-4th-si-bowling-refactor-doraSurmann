@@ -19,10 +19,7 @@ def score(roll):
         last = get_value(roll[i])
         if not in_first_half:
             frame += 1
-        if in_first_half == True:
-            in_first_half = False
-        else:
-            in_first_half = True
+        in_first_half = not in_first_half
         if roll[i] == 'X' or roll[i] == 'x':
             in_first_half = True
             frame += 1
