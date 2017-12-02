@@ -29,13 +29,9 @@ def score(roll):
     return result
 
 def get_value(pins):
-    if pins == '1' or pins == '2' or pins == '3' or \
-       pins == '4' or pins == '5' or pins == '6' or \
-       pins == '7' or pins == '8' or pins == '9':
+    if pins in "123456789":
         return int(pins)
-    elif pins == 'X' or pins == 'x':
-        return 10
-    elif pins == '/':
+    elif pins == 'X' or pins == 'x' or pins == '/':
         return 10
     elif pins == '-':
         return 0
